@@ -37,3 +37,16 @@ template "#{node["apt-cacher-ng"][:confdir]}/security.conf" do
     password: apt_cacher_ng[:password]
 end
 
+directory node["apt-cacher-ng"]["cachedir"] do
+  owner "apt-cacher-ng"
+  group "apt-cacher-ng"
+  action :create
+  recursive true
+end
+
+directory node["apt-cacher-ng"]["logdir"] do
+  owner "apt-cacher-ng"
+  group "apt-cacher-ng"
+  action :create
+  recursive true
+end
